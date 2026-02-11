@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact | BeanStack</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f7f3ef;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    .navbar {
+      background: #2b1b14 !important;
+      padding: 1rem 0;
+    }
+
+    .navbar-brand {
+      font-size: 1.5rem !important;
+      font-weight: bold;
+    }
+
+    .nav-link {
+      color: #fff !important;
+      margin-left: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #ffc107 !important;
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      background: #ffc107;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    /* ===== PAGE HEADER ===== */
+    .page-header {
+      background: linear-gradient(135deg, #2b1b14 0%, #4a2c1f 100%);
+      color: #fff;
+      padding: 4rem 0;
+      text-align: center;
+    }
+
+    .page-header h1 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+      letter-spacing: 1px;
+    }
+
+    .page-header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    /* ===== CONTACT CONTAINER ===== */
+    .contact-container {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    /* ===== CONTACT INFO CARDS ===== */
+    .contact-info {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .info-card {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    .info-card:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .info-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.8rem;
+      flex-shrink: 0;
+    }
+
+    .info-content h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #2b1b14;
+      margin-bottom: 0.5rem;
+    }
+
+    .info-content p {
+      color: #666;
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* ===== CONTACT FORM ===== */
+    .contact-form-card {
+      background: #fff;
+      padding: 2.5rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .contact-form-card h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #2b1b14;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-form-card .form-subtitle {
+      color: #666;
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      color: #2b1b14;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .form-control {
+      border: 2px solid #eee;
+      border-radius: 8px;
+      padding: 0.85rem;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      font-family: inherit;
+    }
+
+    .form-control:focus {
+      border-color: #ffc107;
+      box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.1);
+      outline: none;
+    }
+
+    .form-control::placeholder {
+      color: #bbb;
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    .btn-submit {
+      background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);
+      color: #2b1b14;
+      font-weight: 700;
+      padding: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+      width: 100%;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(255, 193, 7, 0.3);
+    }
+
+    .btn-submit:active {
+      transform: translateY(0);
+    }
+
+    /* ===== CART MODAL ===== */
+    #cartBtn {
+      cursor: pointer;
+      position: relative;
+    }
+
+    .cart-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      padding: 20px;
+    }
+
+    .cart-modal.active {
+      display: flex;
+    }
+
+    .cart-box {
+      background: #fff;
+      width: 100%;
+      max-width: 500px;
+      padding: 30px 20px;
+      border-radius: 15px;
+      max-height: 80vh;
+      overflow-y: auto;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .cart-box h4 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: #2b1b14;
+    }
+
+    .cart-box hr {
+      margin: 1.5rem 0;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .navbar-brand {
+        font-size: 1.2rem !important;
+      }
+
+      .nav-link {
+        margin-left: 0 !important;
+        padding: 0.5rem 0 !important;
+      }
+
+      .page-header {
+        padding: 2.5rem 0;
+      }
+
+      .page-header h1 {
+        font-size: 1.8rem;
+      }
+
+      .page-header p {
+        font-size: 1rem;
+      }
+
+      .contact-container {
+        margin: 2rem auto;
+      }
+
+      .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .contact-info,
+      .contact-form-card {
+        padding: 1.5rem;
+      }
+
+      .contact-form-card h2 {
+        font-size: 1.5rem;
+      }
+
+      .form-control {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+      }
+
+      textarea.form-control {
+        min-height: 120px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .page-header {
+        padding: 2rem 1rem;
+      }
+
+      .page-header h1 {
+        font-size: 1.5rem;
+      }
+
+      .contact-container {
+        padding: 0 0.5rem;
+        margin: 1.5rem auto;
+      }
+
+      .contact-info,
+      .contact-form-card {
+        padding: 1.2rem;
+      }
+
+      .contact-form-card h2 {
+        font-size: 1.3rem;
+      }
+
+      .info-card {
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1.5rem;
+      }
+
+      .info-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.4rem;
+      }
+
+      .info-content h3 {
+        font-size: 1rem;
+      }
+
+      .btn-submit {
+        padding: 0.85rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">☕ BeanStack</a>
+
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+        <li class="nav-item position-relative ms-3">
+          <a id="cartBtn" class="nav-link cursor-pointer" href="#">
+            🛒 Cart
+            <span id="cartCount"
+              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark">
+              0
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== PAGE HEADER ===== -->
+<div class="page-header">
+  <div class="container">
+    <h1>Get in Touch</h1>
+    <p>We'd love to hear from you. Send us a message!</p>
+  </div>
+</div>
+
+<!-- ===== CONTACT CONTENT ===== -->
+<div class="contact-container">
+  <div class="contact-wrapper">
+    
+    <!-- ===== CONTACT INFO CARDS ===== -->
+    <div class="contact-info">
+      <h2 style="font-size: 1.8rem; font-weight: 700; color: #2b1b14; margin-bottom: 2rem;">Contact Information</h2>
+
+      <!-- Address -->
+      <div class="info-card">
+        <div class="info-icon">
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <div class="info-content">
+          <h3>Address</h3>
+          <p>123 Coffee Street<br>Bean City, BC 12345<br>United States</p>
+        </div>
+      </div>
+
+      <!-- Phone -->
+      <div class="info-card">
+        <div class="info-icon">
+          <i class="fas fa-phone"></i>
+        </div>
+        <div class="info-content">
+          <h3>Phone</h3>
+          <p><a href="tel:+11234567890" style="color: #666; text-decoration: none;">+91 9638375257</a></p>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="info-card">
+        <div class="info-icon">
+          <i class="fas fa-envelope"></i>
+        </div>
+        <div class="info-content">
+          <h3>Email</h3>
+          <p><a href="mailto:hello@beanstack.com" style="color: #666; text-decoration: none;">hello@beanstack.com</a></p>
+        </div>
+      </div>
+
+      <!-- Hours -->
+      <div class="info-card">
+        <div class="info-icon">
+          <i class="fas fa-clock"></i>
+        </div>
+        <div class="info-content">
+          <h3>Business Hours</h3>
+          <p>Monday - Friday: 7:00 AM - 9:00 PM<br>Saturday: 8:00 AM - 10:00 PM<br>Sunday: 8:00 AM - 8:00 PM</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== CONTACT FORM ===== -->
+    <div class="contact-form-card">
+      <h2>Send us a Message</h2>
+      <p class="form-subtitle">We'll get back to you as soon as possible</p>
+
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" class="form-control" placeholder="John Doe" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Your Email</label>
+          <input type="email" id="email" class="form-control" placeholder="john@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" class="form-control" placeholder="How can we help?" required>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" class="form-control" placeholder="Your message here..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">Send Message</button>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===== CART MODAL ===== -->
+<div id="cartModal" class="cart-modal" onclick="closeCart(event)">
+  <div class="cart-box">
+    <h4 class="mb-3">🛒 Your Cart</h4>
+    <div id="cartItems"></div>
+    <hr>
+    <h5>Total: $<span id="cartTotal">0.00</span></h5>
+    <button class="btn btn-secondary w-100 mt-3" onclick="closeCart()">Close</button>
+  </div>
+</div>
+
+<!-- Toastify CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+<!-- Toastify JS -->
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Script -->
+<script src="script.js"></script>
+
+<!-- Contact Form Script Override -->
+<script>
+  const contactForm = document.getElementById("contactForm");
+  if(contactForm){
+    contactForm.onsubmit = (e) => {
+      e.preventDefault();
+      
+      const name = document.getElementById('name')?.value?.trim() || '';
+      const email = document.getElementById('email')?.value?.trim() || '';
+      const subject = document.getElementById('subject')?.value?.trim() || '';
+      const message = document.getElementById('message')?.value?.trim() || '';
+      
+      // Validation
+      if(!name || !email || !subject || !message) {
+        showNotification("Please fill all fields!", 'error');
+        return;
+      }
+      
+      if(!isValidEmail(email)){
+        showNotification("Please enter a valid email!", 'error');
+        return;
+      }
+      
+      // Save to localStorage
+      const submissions = JSON.parse(localStorage.getItem("contacts")) || [];
+      submissions.push({
+        name,
+        email,
+        subject,
+        message,
+        date: new Date().toLocaleString()
+      });
+      localStorage.setItem("contacts", JSON.stringify(submissions));
+      
+      // Show success message
+      showNotification("✅ Thank you! Your message has been received. We'll contact you soon.", 'success');
+      
+      // Reset form
+      contactForm.reset();
+    };
+  }
+</script>
+
+</body>
+</html>
