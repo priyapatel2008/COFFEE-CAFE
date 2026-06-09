@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>About – BeanStack</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #f7f3ef;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.navbar {
+  background: #2b1b14 !important;
+  padding: 1rem 0;
+}
+
+.navbar-brand {
+  font-size: 1.5rem !important;
+  font-weight: bold;
+}
+
+.nav-link {
+  color: #fff !important;
+  margin-left: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #ffc107 !important;
+}
+
+.cart-count {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: #ffc107;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.container {
+  max-width: 1200px;
+}
+
+section {
+  padding: 2rem 1rem;
+}
+
+section h2 {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  font-weight: 700;
+  color: #2b1b14;
+  margin-bottom: 2rem;
+}
+
+.about-card {
+  background: #fff;
+  padding: clamp(20px, 5vw, 40px);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-card p {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.about-card strong {
+  color: #2b1b14;
+  font-size: 1.3rem;
+}
+
+.about-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.about-card li {
+  font-size: 1.1rem;
+  padding: 0.75rem 0;
+  color: #555;
+}
+
+@media (max-width: 768px) {
+  .navbar-brand {
+    font-size: 1.2rem !important;
+  }
+
+  .nav-link {
+    margin-left: 0 !important;
+    padding: 0.5rem 0 !important;
+  }
+
+  section {
+    padding: 1.5rem 1rem;
+  }
+
+  section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .about-card {
+    padding: 1.5rem;
+  }
+
+  .about-card p {
+    font-size: 1rem;
+  }
+
+  .about-card li {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 10px;
+  }
+
+  section {
+    padding: 1rem;
+  }
+
+  section h2 {
+    font-size: 1.3rem;
+  }
+}
+
+#cartBtn {
+  cursor: pointer;
+}
+
+.cart-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+.cart-modal.active {
+  display: flex;
+}
+
+.cart-box {
+  background: #fff;
+  width: 100%;
+  max-width: 500px;
+  padding: 30px 20px;
+  border-radius: 10px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.cart-box h4 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.cart-box hr {
+  margin: 1.5rem 0;
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">☕ BeanStack</a>
+
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item position-relative ms-3">
+          <a id="cartBtn" class="nav-link cursor-pointer" href="#">
+            🛒 Cart
+            <span id="cartCount"
+              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark">
+              0
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<section class="container">
+  <h2 class="text-center">Our Story</h2>
+  <div class="about-card">
+    <p><strong>BeanStack</strong> is built for people who love coffee.</p>
+    <ul>
+      <li>☕ Premium beans sourced from around the world</li>
+      <li>🧑‍🍳 Expert baristas trained in specialty coffee</li>
+      <li>🌱 Sustainable sourcing and ethical practices</li>
+      <li>❤️ Made with love for every customer</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Cart Modal -->
+<div id="cartModal" class="cart-modal" onclick="closeCart(event)">
+  <div class="cart-box">
+    <h4 class="mb-3">🛒 Your Cart</h4>
+    <div id="cartItems"></div>
+    <hr>
+    <h5>Total: $<span id="cartTotal">0.00</span></h5>
+    <button class="btn btn-secondary w-100 mt-3" onclick="closeCart()">Close</button>
+  </div>
+</div>
+
+<!-- Toastify CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+<!-- Toastify JS -->
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "coffee-shop-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for BeanStack Coffee Shop",
+  "main": "index.html",
+  "scripts": {
+    "start": "http-server -p 3000",
+    "dev": "http-server -p 3000 -c-1"
+  },
+  "keywords": ["coffee", "shop", "frontend"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
